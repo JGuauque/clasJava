@@ -96,14 +96,14 @@ public class Automovil {
         if ((velocidadActual+incrementoVelocidad)<velocidadMaxima) {
         velocidadActual=velocidadActual+incrementoVelocidad;            
         } else {
-            System.out.println(x:"No puede incrementar a un velocidad superior a la maxima");
+            System.out.println("No puede incrementar a un velocidad superior a la maxima");
         }
     }
     void desacelerar(int decrementoVelocidad){
         if ((velocidadActual-decrementoVelocidad)>0) {
             velocidadActual=velocidadActual-decrementoVelocidad;
         } else {
-            System.out.println(x:"No se puede desacelerar por debajo de 0");
+            System.out.println("No se puede desacelerar por debajo de 0");
         }
     }
     void frenar(){
@@ -112,4 +112,6 @@ public class Automovil {
     double calcularTiempoLlegada(int distancia){
         return distancia/velocidadActual;
     }
+
 }
+
