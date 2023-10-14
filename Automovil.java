@@ -5,7 +5,7 @@ public class Automovil {
     int numeroPuertas;
     int CantidadAsientos;
     double velocidadMaxima;
-    double velocidadActual;
+    double velocidadActual=0;
     enum tipoComb{
         GASOLINA,BIOGASOLINA,DISEL,BIODISEL,GAS_NATURAL
     }
@@ -19,7 +19,7 @@ public class Automovil {
     }
     tipoColor color;
     public Automovil(String marca, int modelo, double motor, int numeroPuertas, int cantidadAsientos,
-            double velocidadMaxima, double velocidadActual, Automovil.tipoComb tipoCombustible,
+            double velocidadMaxima, Automovil.tipoComb tipoCombustible,
             Automovil.tipoAuto tipoAutomovil, Automovil.tipoColor color) {
         this.marca = marca;
         this.modelo = modelo;
@@ -27,7 +27,6 @@ public class Automovil {
         this.numeroPuertas = numeroPuertas;
         CantidadAsientos = cantidadAsientos;
         this.velocidadMaxima = velocidadMaxima;
-        this.velocidadActual = velocidadActual;
         this.tipoCombustible = tipoCombustible;
         this.tipoAutomovil = tipoAutomovil;
         this.color = color;
@@ -112,6 +111,30 @@ public class Automovil {
     double calcularTiempoLlegada(int distancia){
         return distancia/velocidadActual;
     }
-
+    void imprimir(){
+        System.out.println("marca ="+marca);
+        System.out.println("modelo ="+modelo);
+        System.out.println("motor ="+motor);
+        System.out.println("Tipo de combustible ="+tipoCombustible);
+        System.out.println("Tipo de automovil ="+tipoAutomovil);
+        System.out.println("Numero de puertas ="+numeroPuertas);
+        System.out.println("Cantidad de asientos ="+CantidadAsientos);
+        System.out.println("Velocidad maxima ="+velocidadMaxima);
+        System.out.println("color ="+color);
+    }
+    public static void main (String []args){
+        Automovil auto1 = new Automovil("ford", 2014, 2, 5, 5, 250, tipoComb.GASOLINA, tipoAuto.COMPACTO, tipoColor.NEGRO);
+        auto1.imprimir();
+        auto1.setVelocidadActual(100);
+        System.out.println("Velocidad actual ="+auto1.velocidadActual);
+        auto1.acelerar(20);
+        System.out.println("Velocidad actual ="+auto1.velocidadActual);
+        auto1.desacelerar(50);
+        System.out.println("Velocidad actual ="+auto1.velocidadActual);
+        auto1.frenar();
+        System.out.println("Velocidad actual ="+auto1.velocidadActual);
+        auto1.desacelerar(10);
+        System.out.println("Velocidad Actual ="+auto1.velocidadActual);
+    }
 }
 
